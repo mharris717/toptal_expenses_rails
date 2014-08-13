@@ -12,3 +12,5 @@ class CreateExpenses < ActiveRecord::Migration
     end
   end
 end
+
+# validate dup expenses?
