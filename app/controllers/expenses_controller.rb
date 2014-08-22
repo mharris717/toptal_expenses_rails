@@ -16,8 +16,18 @@ class ExpensesController < ApplicationController
       render json: []
     end
   end
+  def index_unauth
+    render json: Expense.all
+  end
   def create
-    expense = current_user.expenses.create! params[:expense].permit(:expense_dt, :amount, :description, :comment, :user_id)
+    u = current_user#  || User.first
+    expense = u.expenses.create! params[:expense].permit(:expense_dt, :amount, :description, :comment, :user_id)
+    render json: expense
+  end
+
+  def update
+    expense = Expense.find(params[:id])
+    expense.update_attributes! params[:expense].permit(:expense_dt, :amount, :description, :comment, :user_id)
     render json: expense
   end
 end

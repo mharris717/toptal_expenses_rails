@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '1.9.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
@@ -25,4 +26,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'active_model_serializers'
-gem 'devise' 
+gem 'devise'
+gem 'rack-cors', :require => 'rack/cors'
