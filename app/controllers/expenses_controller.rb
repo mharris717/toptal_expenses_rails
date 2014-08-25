@@ -1,12 +1,4 @@
 class ExpensesController < ApplicationController
-  before_filter do
-    puts params.inspect
-    puts headers.inspect
-
-    puts "Auth Header: #{request.authorization.to_s}"
-
-    true
-  end
   skip_before_action :verify_authenticity_token
 
   def index
