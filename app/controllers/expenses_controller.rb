@@ -1,6 +1,11 @@
 class ExpensesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
+  def show
+    expense = current_user.expenses.find(params[:id])
+    render json: expense
+  end
+  
   def index
     if current_user
       render json: current_user.expenses
